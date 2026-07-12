@@ -10,17 +10,28 @@ export const fetchBooks = async (page = 1, limit = 10) => {
                 headers: {"Content-Type": "application/json"},
                 next: {revalidate: 3600} // this will cache data for an hour 
             });
-            if(!response.ok){
-                throw new Error(`HTTP Error! Status: ${response.status}`)
-            } 
+              if(!response.ok){
+                throw new Error(`HTTP Error! Status: ${response.status}`);
+               } 
+        
             
             const jsonData = await response.json();
-            return jsonData.data?.data || [];
-         } catch (error) {
+            return {
+               book: jsonData.data.data,
+               pagination:{ 
+                page: jsonData.data.page,
+               limit: jsonData.data.limit,
+               totalPages: jsonData.data.totalPages,
+               totalItems: jsonData.data.totalItems,
+               hasNext: jsonData.data.nextPage,
+               hasPrevious: jsonData.data.previousPage,
+               },  
+            };
+            } catch (error) {
             console.error(`[Books Service ERROR]: Failed to fetch books: ${error}`)
             throw error;
         }
-     } 
+    }
 
   // usability  
   // app/books/page.js
