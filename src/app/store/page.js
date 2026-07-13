@@ -6,7 +6,7 @@ import BookShelf from "../ui/Books/BookShelf";
 const BookListPage = async () => {
   const {book, pagination} = await fetchBooks(1, 10);
    console.log(book);
-
+    
 
   return <div> 
     BookListPage
@@ -16,3 +16,11 @@ const BookListPage = async () => {
 };
 
 export default BookListPage;
+
+export async function getBookById(id){
+  book.find(book => book.id === id);
+}
+
+
+  
+

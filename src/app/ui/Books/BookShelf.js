@@ -4,7 +4,7 @@ import BookCard from "./BookCard.js";
 const BookShelf = ({book, pagination}) => {
    return (
     <>
-    <div>
+    <div className="gap-2">
         <h1>Books</h1>
 
 <p>Page {pagination.page} of {pagination.totalPages}</p>
