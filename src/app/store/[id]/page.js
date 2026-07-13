@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { getBookById } from "../page.js";
-
+import BookDetails from ""
 
 
 const BookDetailPage = ({params: {id}}) => {
