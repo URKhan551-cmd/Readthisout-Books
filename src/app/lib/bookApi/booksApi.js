@@ -1,6 +1,6 @@
 
 const url = "https://api.freeapi.app/api/v1/public";
-
+  
    
 export const fetchBooks = async (page = 1, limit = 10) => {
         try {
@@ -17,7 +17,7 @@ export const fetchBooks = async (page = 1, limit = 10) => {
             
             const jsonData = await response.json();
             return {
-               book: jsonData.data.data,
+               books: jsonData.data.data,
                pagination:{ 
                 page: jsonData.data.page,
                limit: jsonData.data.limit,

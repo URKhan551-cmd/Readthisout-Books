@@ -5,16 +5,16 @@ import NavLinks from "./NavLinks";
 
 const SideBar = () => {
   return (
-    <div> 
-      <Link href="/store" className="bg-gray-600 flex h-20 items-end justify-start rounded-md p-4">
-           <div className="w-32 md:w-40">
+    <div className="sticky lg:min-h-screen bg-black border border-dashed"> 
+      <Link href="/store" className="flex h-20 items-start justify-start rounded-md p-4">
+           <div className="w-40 md:w-50">
              <Logo />
            </div>
         </Link>
-        <div className="flex flex-wrap gap-2 justify-center md:grow flex-row md:justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+        <div className="flex flex-wrap rounded-sm bg-black ml-3 gap-2 md:grow justify-start md:justify-between space-x-2 md:flex-row md:space-x-0 md:space-y-2">
         <NavLinks />
-        <form>
-            <button className="flex h-[48px] items-center justify-center gap-2 bg-purple-300 text-white rounded-lg hover:bg-purple-700">
+        <form className="grid w-[120px]">
+            <button className="h-[40px] p-2 items-center font-bold justify-center gap-2 text-fuchsia-700 rounded-xl border border-dashed  hover:text-white">
                 Sign Out</button>
         </form> 
         </div>

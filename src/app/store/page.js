@@ -4,22 +4,21 @@ import BookShelf from "../ui/Books/BookShelf";
 
 
 const BookListPage = async () => {
-  const {book, pagination} = await fetchBooks(1, 10);
-   console.log(book);
+  const {books, pagination} = await fetchBooks(1, 10);
+   console.log(books);
     
 
-  return <div> 
+  return (
+  <div className="flex flex-cols-3 gap-1 bg-black-400 text-gray-500 ml-4"> 
     BookListPage
     <h1>List of Books</h1>
-    <BookShelf book={book} pagination={pagination}/>
-    </div>;
+    <BookShelf books={books} pagination={pagination}/>
+    </div>
+  )
 };
 
 export default BookListPage;
 
-export async function getBookById(id){
-  book.find(book => book.id === id);
-}
 
 
   
