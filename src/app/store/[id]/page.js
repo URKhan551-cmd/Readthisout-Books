@@ -34,7 +34,7 @@ console.log("Found:", book);
 
   return (
     <div>
-    <div>BookDetailPage</div>
+    <div className="flex flex-col bg-gray-600 ml-3">BookDetailPage</div>
     <BookDetails book={book} />
     </div>
   )

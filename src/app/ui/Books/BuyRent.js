@@ -1,13 +1,21 @@
 "use client"
 import {ShoppingBasket} from "lucide-react";
 import {toast} from "react-toastify";
+import {useContext} from "react";
+import {StoreContext} from "@/app/context";
+
 
 const BuyOrRent = ({info}) => {
+    const {cartData, setCart} = useContext(StoreContext);
+
 
 const handleClick = (e, reason) =>{
   e.preventDefault();
   console.log(info);
   const newData = {...info, type: reason};
+
+  setCart([...cartData, newData]);
+
    toast.success(`Added ${newData.title} to the cart`, {
     autoClose: 2000,
     position: "top-right",

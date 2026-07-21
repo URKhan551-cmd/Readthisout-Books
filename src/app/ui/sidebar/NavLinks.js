@@ -1,3 +1,8 @@
+'use client'
+
+import {useContext} from "react";
+import {StoreContext} from "@/app/context"
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -26,6 +31,8 @@ const links = [
 ];
 
 const NavLinks = () => {
+  const {cartData} = useContext(StoreContext);
+
   return (
     <div>
       {links.map((link) => {
@@ -38,7 +45,8 @@ const NavLinks = () => {
               className="flex h-[48px] grow items-start justify-start gap-2 rounded-md text-fuchsia-500"
             >
               <IconComponent className="w-6 text-fuchsia-700 hover:w-8" />
-              <p className="hidden md:block text-fuchsia-500">{link.name}</p>
+              {(link.name === "Cart" && cartData && cartData.length > 0) ? `${link.name} (${cartData.length})` : 
+              <p className="hidden md:block text-fuchsia-500">{link.name}</p> }
               <span className="text-white justify-end bg-white hidden hover:block">arrow</span>
             </Link>
             
